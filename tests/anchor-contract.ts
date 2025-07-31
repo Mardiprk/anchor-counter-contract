@@ -19,7 +19,6 @@ describe("anchor-contract", () => {
       })
       .signers([counterKeypair])
       .rpc();
-
     console.log("Initialize transaction signature:", tx);
   });
 

@@ -1,3 +1,8 @@
+```bash
+NONE OF THESE CONTRACTS ARE AUDITED
+```bash
+
+
 # Solana Counter Program
 
 A simple counter smart contract built with Anchor framework for learning Solana development.
@@ -52,14 +57,17 @@ anchor deploy --provider.cluster devnet
 
 ```typescript
 // Initialize counter
-await program.methods
-  .initialize()
-  .accounts({
-    counter: counterKeypair.publicKey,
-    user: wallet.publicKey,
-    systemProgram: SystemProgram.programId,
-  })
-  .rpc();
+const tx = await program.methods
+      .initialize()
+      .accounts({
+        counter: counterKeypair.publicKey,
+        user: provider.wallet.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId,
+      })
+      .signers([counterKeypair])
+      .rpc();
+
+    console.log("Initialize transaction signature:", tx);
 
 // Increment counter
 await program.methods
