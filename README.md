@@ -1,6 +1,6 @@
 ```bash
 NONE OF THESE CONTRACTS ARE AUDITED
-```bash
+```
 
 
 # Solana Counter Program
